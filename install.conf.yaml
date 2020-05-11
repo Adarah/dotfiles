@@ -8,7 +8,7 @@
     ~/.config/nvim/init.vim:
         force: true
         create: true
-        path: init.vim
+        path: config/nvim/init.vim
     ~/.doom.d:
         force: true
         path: .doom.d
