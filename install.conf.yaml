@@ -1,0 +1,17 @@
+- defaults:
+    link:
+        relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.config/nvim/init.vim:
+        force: true
+        create: true
+        path: init.vim
+    ~/.doom.d:
+        force: true
+        path: .doom.d
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
