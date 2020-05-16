@@ -94,8 +94,12 @@
 (add-hook 'js2-mode-hook (lambda () ( setq flycheck-checker 'javascript-standard) ))
 (add-hook 'python-mode-hook (lambda () ( setq flycheck-checker 'python-flake8) ))
 
-(setq eslintd-fix-executable "/usr/lib/node_modules/eslint_d/bin/eslint_d.js")
+(setq eslintd-fix-executable "/usr/bin/eslint_d")
 (setq js-indent-level 2)
 (add-hook 'org-mode-hook 'org-fragtog-mode)
 
 (require 'dap-python)
+;; (setq lsp-eslint-server-command
+;;    '("node"
+;;      "/opt/vscode-eslint/server/src/eslintServer.ts"
+;;      "--stdio"))
