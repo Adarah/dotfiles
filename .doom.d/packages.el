@@ -61,3 +61,4 @@
 (package! org-fragtog)
 (package! eslintd-fix)
 (package! dap-mode)
+(package! nasm-mode)

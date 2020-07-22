@@ -69,7 +69,7 @@
   :after (org-noter))
 
 (setq TeX-PDF-mode t)
-(setq org-re-reveal-root "file:///home/mag/Programs/reveal.js")
+;; (setq org-re-reveal-root "file:///home/mag/Programs/reveal.js")
 
 ;; smart F keys, and fix to magit conflict
 (after! evil-snipe
@@ -92,7 +92,7 @@
 
 ;; (setq dap-python-executable "/home/mag/Documents/personal/zoo_python/zoo_venv/bin/python")
 (add-hook 'js2-mode-hook (lambda () ( setq flycheck-checker 'javascript-standard) ))
-(add-hook 'python-mode-hook (lambda () ( setq flycheck-checker 'python-flake8) ))
+;; (add-hook 'python-mode-hook (lambda () ( setq flycheck-checker 'python-flake8) ))
 
 (setq eslintd-fix-executable "/usr/bin/eslint_d")
 (setq js-indent-level 2)
@@ -103,3 +103,29 @@
 ;;    '("node"
 ;;      "/opt/vscode-eslint/server/src/eslintServer.ts"
 ;;      "--stdio"))
+
+(setq rustic-lsp-server 'rust-analyzer)
+
+(setq  lsp-rust-clippy-preference "on")
+
+;; Org mode ToC fix
+
+  (customize-set-value 'org-latex-with-hyperref nil) ;removes hyperref
+  ;; breaks long links on hyphens
+  (add-to-list 'org-latex-default-packages-alist "\\PassOptionsToPackage{hyphens}{url}")
+;; Make sure to add these to the latex header
+;; #+LaTeX_HEADER: \usepackage[x11names]{xcolor}
+;; #+LaTeX_HEADER: \hypersetup{linktoc = all, colorlinks = true, urlcolor = DodgerBlue4, citecolor = PaleGreen1, linkcolor = black}
+(flycheck-define-checker vhdl-ghdl
+  "A VHDL syntax checker using ghdl."
+  :command ("ghdl" "-s" "--std=08" "--workdir=work" "-fexplicit" "-v" source)
+  :error-patterns
+  ((error line-start (file-name) ":" line ":" column
+	  ": " (message) line-end))
+  :modes vhdl-mode)
+(flycheck-set-checker-executable 'vhdl-ghdl)
+
+(add-hook 'vhdl-mode-hook
+          '(lambda ()
+             (setq flycheck-checker 'vhdl-ghdl)
+             (flycheck-mode 1)))

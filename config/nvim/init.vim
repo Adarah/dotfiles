@@ -95,8 +95,8 @@ Plug 'Vimjas/vim-python-pep8-indent' " pep8 compliant auto-indents
 Plug 'blueyed/vim-diminactive' " dims inactive windows (or brightens for dark themes)
 Plug 'NLKNguyen/papercolor-theme' " neat color scheme
 " Linting and stuff
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocomplete, linting, and more (LSP)
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " syntax highlighting
+" Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocomplete, linting, and more (LSP)
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " syntax highlighting
 Plug 'vim-airline/vim-airline'
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
